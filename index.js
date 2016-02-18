@@ -129,13 +129,18 @@ db.once('open', function() {
 io.on('connection', function(socket){
   socket.on('chat message', function(mensaje){
     console.log('message: ' + mensaje);
-      var entrada = new nodechat({ name: mensaje });
+
+    var values = {
+    		name: 'usuario',
+    		text: mensaje
+    };
+      var entrada = new nodechat(values);
      
 
 
       entrada.save(function (err, entrada) {
   if (err) return console.error(err);
-   console.log(entrada.text, entrada.name); // 'Silence'
+   console.log(entrada.text); // 'Silence'
 });
 
 

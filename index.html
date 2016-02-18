@@ -17,15 +17,16 @@
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
   </head>
 <body ng-controller="ClientFunctions">
-  
+    <h2><CENTER>CHAT NODE {{socket}}</CENTER></h2>
+
     <ul id="messages"></ul>
     <form id="form" action="">
-      <input id="textbox" autocomplete="off" /><button>Sendi</button>
+      <input id="textbox" autocomplete="off" /><button>ENVIAR</button>
     </form>
   </body>
   <script>
-  //  {{socket}}
-  var socket = io.connect('http://localhost:3000')
+   // var socket = {{socket}};
+     var socket = io.connect('http://localhost:3000');
   $('form').submit(function(){
     socket.emit('chat message', $('#textbox').val());
     $('#textbox').val('');
